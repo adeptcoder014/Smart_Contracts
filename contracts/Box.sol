@@ -1,13 +1,10 @@
-// contracts/Box.sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
-
-// Import Auth from the access-control subdirectory
 import "../contracts/Auth.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Box is Ownable {
-    uint256 private _value;
+    uint256 private _value;//contract storage
     Auth private _auth;
     //==========================  Emitted when the stored value changes ===========================
 
@@ -15,7 +12,8 @@ contract Box is Ownable {
 
     //----------------------------------------------------------------------
     constructor() {
-        _auth = new Auth(msg.sender);
+        _auth = new Auth(msg
+        .sender);
     }
 
     //========================== Stores a new value in the contract ===========================
@@ -32,4 +30,8 @@ contract Box is Ownable {
     function retrieve() public view returns (uint256) {
         return _value;
     }
+
+    
+
 }
+// 0x5FbDB2315678afecb367f032d93F642f64180aa3

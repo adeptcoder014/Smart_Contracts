@@ -1,9 +1,12 @@
 // contracts/access-control/Auth.sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+import "hardhat/console.sol";
+
 
 contract Auth {
     address private _administrator;
+
 
     constructor(address deployer) {
         // Make the deployer of the contract the administrator
