@@ -19,6 +19,7 @@
     "@openzeppelin/contracts": "^4.8.0",
     "alchemy-sdk": "^2.2.3",
     "dotenv": "^16.0.3",
-    "number-to-words": "^1.2.4"
+    "number-to-words": "^1.2.4",
+    "web3": "^1.8.2"
   }
 }
