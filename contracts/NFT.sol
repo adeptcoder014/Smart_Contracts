@@ -4,8 +4,9 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./Baniya.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract MyNFT is ERC721, Ownable {
+contract MyNFT is ERC721URIStorage , Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
@@ -19,10 +20,10 @@ contract MyNFT is ERC721, Ownable {
 
     function buyNFT(uint256 tokenId) public {
         require(
-            baniyaToken.balanceOf(msg.sender) >= price,
+            _baniyaToken.balanceOf(msg.sender) >= _price,
             "Insufficient balance"
         );
-        baniyaToken.transferFrom(msg.sender, address(this), price);
+        _baniyaToken.transferFrom(msg.sender, address(this), _price);
 
         _safeMint(msg.sender, tokenId);
     }
